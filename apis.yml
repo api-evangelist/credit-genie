@@ -1,17 +1,33 @@
 aid: credit-genie
 name: Credit Genie
-description: 'Credit Genie is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Credit Genie is a consumer fintech operated by Creditly Corp. (Wilmington, Delaware,
+  founded 2019) that runs a mobile-first money app for people living between paychecks.
+  Its Cash Boost product advances $10-$150 with no interest and no hard credit check,
+  funded against a linked bank account rather than a credit score, while Money Manager
+  layers spending tracking, cash-flow prediction and subscription detection on top of that
+  same bank connection. A Line of Credit product and AskGenie, an AI financial assistant,
+  are in early access. Creditly Corp. is registered with the California DFPI under the
+  CCFPL (registration 04-CCFPL-1956127-3514680) and has raised roughly $21M from Fortress
+  Investment Group, Khosla Ventures, Sutter Hill Ventures, Tippet Venture Partners and
+  Gabriel Investments. Credit Genie is a direct-to-consumer app company: it publishes no
+  public API, developer portal, or machine-readable contract of any kind.
+image: https://creditgenie.com/images/app-logo.png
 url: https://raw.githubusercontent.com/api-evangelist/credit-genie/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-11'
 modified: '2026-08-11'
 tags:
 - Company
+- Financial Services
+- Fintech
+- Consumer Finance
+- Lending
+- Cash Advance
+- Personal Finance
+- Mobile Application
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +36,55 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
+  url: https://www.creditgenie.com/
+- type: SignUp
+  url: https://app.creditgenie.com
+- type: Support
+  url: https://creditgenie.zendesk.com/hc/en-us/
+- type: TermsOfService
+  url: https://www.creditgenie.com/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://www.creditgenie.com/privacy-policy
+- type: GitHubOrganization
+  url: https://github.com/CreditGenie
+- type: Security
+  url: https://creditgenie.com/.well-known/security.txt
+- type: SecurityTxt
+  url: well-known/credit-genie-security.txt
+- type: WellKnown
+  url: well-known/credit-genie-well-known.yml
+- type: VulnerabilityDisclosure
+  url: security/credit-genie-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/credit-genie-domain-security.yml
+- type: LLMsTxt
+  url: llms/credit-genie-llms.txt
+- type: SecondaryMarket
+  name: Forge Global listing
   url: https://forgeglobal.com/credit-genie_stock/
+x-enrichment:
+  date: '2026-08-11'
+  status: minimal
+  artifacts_added: 8
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Credit Genie ships only the consumer Cash Boost / Money Manager mobile app — there is
+    no developer subdomain at all (api., developer. and docs.creditgenie.com return NXDOMAIN),
+    the marketing host 404s /openapi.json, /swagger.json, /api-docs and /llms.txt, the
+    first-party GitHub org github.com/CreditGenie holds zero public repositories, and the
+    only machine-readable document the company serves anywhere is its RFC 9116 security.txt.
+  evidence:
+    - url: https://api.creditgenie.com/openapi.json
+      status: 0
+    - url: https://www.creditgenie.com/openapi.json
+      status: 404
+    - url: https://www.creditgenie.com/llms.txt
+      status: 404
+    - url: https://creditgenie.com/.well-known/api-catalog
+      status: 404
+    - url: https://creditgenie.com/.well-known/security.txt
+      status: 200
+  checked: '2026-08-11'

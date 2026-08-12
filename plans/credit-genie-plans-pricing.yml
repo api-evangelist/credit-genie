@@ -1,0 +1,19 @@
+generated: '2026-08-11'
+method: searched
+source: https://www.creditgenie.com/cash-boost
+plan_count: 0
+plans: []
+note: >-
+  Credit Genie publishes no API and therefore no API plans or developer pricing tiers.
+  https://www.creditgenie.com/pricing returns 404. The only published charges are
+  consumer product fees on the Cash Boost app (a recurring bank-connection fee and
+  optional expedited-delivery fees), which are product pricing rather than an API plan
+  surface and are not modelled here. No pointer of type Plans is wired in apis.yml:
+  an empty plan set is a recorded absence, not a published plan surface.
+x-evidence:
+  fetched: '2026-08-11'
+  probes:
+    - url: https://www.creditgenie.com/pricing
+      status: 404
+    - url: https://www.creditgenie.com/cash-boost
+      status: 200

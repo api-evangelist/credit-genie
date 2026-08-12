@@ -1,0 +1,67 @@
+generated: '2026-08-11'
+method: searched
+source: https://creditgenie.com/.well-known/
+host: https://creditgenie.com
+note: >-
+  Credit Genie serves a real RFC 9116 security.txt from its marketing host, plus the
+  PGP public key that document references. Every other well-known discovery path
+  returns a hard 404. The company publishes no API, so there is no API host to probe
+  beyond the marketing site and the consumer app host; the app host
+  main.app.creditgenie.com answers 403 to every path for a non-browser client.
+documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain
+    file: credit-genie-security.txt
+    note: RFC 9116; Contact security@creditgenie.com, Expires 2027-02-02.
+  - path: /.well-known/pgp-key.asc
+    status: 200
+    content_type: application/octet-stream
+    file: credit-genie-pgp-key.asc
+    note: PGP PUBLIC key block referenced by the Encryption field of security.txt.
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+hosts_probed:
+  - host: creditgenie.com
+    reachable: true
+  - host: www.creditgenie.com
+    reachable: true
+  - host: app.creditgenie.com
+    reachable: true
+    note: consumer sign-in host; all /.well-known/* paths return 404.
+  - host: main.app.creditgenie.com
+    reachable: true
+    note: returns 403 to every path for a non-browser client.
+  - host: api.creditgenie.com
+    reachable: false
+    note: DNS does not resolve.
+  - host: developer.creditgenie.com
+    reachable: false
+    note: DNS does not resolve.
+  - host: docs.creditgenie.com
+    reachable: false
+    note: DNS does not resolve.
+x-evidence:
+  fetched: '2026-08-11'
+  probes:
+    - url: https://creditgenie.com/.well-known/security.txt
+      status: 200
+    - url: https://creditgenie.com/.well-known/pgp-key.asc
+      status: 200
+    - url: https://creditgenie.com/.well-known/api-catalog
+      status: 404
+    - url: https://creditgenie.com/.well-known/agent-card.json
+      status: 404
+    - url: https://api.creditgenie.com/openapi.json
+      status: 0
+      note: DNS resolution failure.
